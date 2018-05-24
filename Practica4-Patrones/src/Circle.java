@@ -9,5 +9,7 @@
  * @author Hulio
  */
 public class Circle {
-    
+   public Circle(double r){
+   
+   }
 }
