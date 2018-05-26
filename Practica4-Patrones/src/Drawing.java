@@ -7,7 +7,7 @@ import java.util.List;
  * @author Alberto
  */
 
-public class Drawing extends Figure{
+public class Drawing extends Figure {
     private final List<Figure> components;
     
     public Drawing(double x , double y, List<Figure> components) {
@@ -17,6 +17,11 @@ public class Drawing extends Figure{
     
     public List<Figure> getList(){
         return Collections.unmodifiableList(components);
+    }
+
+    @Override
+    public void accept(FigureVisitor fv) {
+        fv.visit(this);
     }
     
 }

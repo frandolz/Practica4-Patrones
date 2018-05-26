@@ -20,4 +20,9 @@ public class Circle extends Figure{
     public void setR(double r) {
         this.r = r;
     }
+
+    @Override
+    public void accept(FigureVisitor fv) {
+      fv.visit(this);
+    }
 }

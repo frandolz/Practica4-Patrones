@@ -33,4 +33,9 @@ public class Rectangle extends Figure {
     public double getHeight() {
         return height;
     }
+
+    @Override
+    public void accept(FigureVisitor fv) {
+       fv.visit(this);
+    }
 }
