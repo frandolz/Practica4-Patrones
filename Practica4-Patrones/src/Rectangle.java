@@ -16,15 +16,6 @@ public class Rectangle extends Figure {
         this.height = h;               
     }
 
-    /*      SETTERS     */
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
     /*      GETTERS     */
     public double getWidth() {
         return width;
