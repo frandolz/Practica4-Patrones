@@ -1,29 +1,37 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author F.Dolz
+ * @author Oriol
+ * @author Alberto
  */
 
-/**
- *
- * @author fran
- */
 public abstract class Figure {
-    private List<Figure> components;
     private double x;
     private double y;
     
     public Figure(double x, double y){
-         components = new ArrayList();
          this.x = x;
          this.y = y;
             
     }
-    public void addComponent(Figure component){
-        components.add(component);
+
+    /*      GETTERS     */
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    /*      SETTERS     */
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 }
