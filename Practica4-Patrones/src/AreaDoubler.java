@@ -5,19 +5,35 @@
  */
 public class AreaDoubler implements FigureVisitor{
 
+    private Drawing draw;
+    private Circle circ;
+    private Rectangle rect;
+    
+    private final double math_sqrt = Math.sqrt(2.0);
+    
     @Override
     public void visit(Circle circle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        circ = new Circle (circle.getX(),
+              circle.getY(),
+              circle.getR()* math_sqrt);
     }
 
     @Override
     public void visit(Rectangle rectangle) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        rect = new Rectangle(rectangle.getX(), 
+                    rectangle.getY(),
+                    rectangle.getHeight()* math_sqrt,
+                    rectangle.getWidth()* math_sqrt);
     }
 
     @Override
     public void visit(Drawing drawing) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      DrawingBuilder db = new DrawingBuilder(drawing.getX(),drawing.getY());
+      
+      for (Figure figure: drawing.getList()){
+          figure.accept(this); //llama al visit
+          db.addFigure(figure); //añadimos la figura a la lista 
+      }    
+       draw = db.create(); //creamos la figura 
     }
-    
 }
