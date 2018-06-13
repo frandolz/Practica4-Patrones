@@ -1,5 +1,4 @@
 /**
- *
  * @author F.Dolz
  * @author Oriol
  * @author Alberto

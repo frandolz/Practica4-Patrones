@@ -3,9 +3,11 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
- * @author Fran,Oriol,Alberto
+ * @author F.Dolz
+ * @author Oriol
+ * @author Alberto
  */
+
 public class DrawingBuilder {
     
     private double x;
@@ -25,8 +27,6 @@ public class DrawingBuilder {
    
    public Drawing create(){
        return new Drawing(this.x,this.y,Collections.unmodifiableList(components));
-       
    }
-    
-    
+   
 }

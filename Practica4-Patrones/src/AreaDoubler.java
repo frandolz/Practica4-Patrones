@@ -3,12 +3,12 @@
  * @author Oriol
  * @author Alberto
  */
+
 public class AreaDoubler implements FigureVisitor{
 
     private Drawing draw;
     private Circle circ;
     private Rectangle rect;
-    
     private final double math_sqrt = Math.sqrt(2.0);
     
     @Override
@@ -28,15 +28,12 @@ public class AreaDoubler implements FigureVisitor{
 
     @Override
     public void visit(Drawing drawing) {
-      DrawingBuilder db = new DrawingBuilder(drawing.getX(),drawing.getY());
-      
+        DrawingBuilder db = new DrawingBuilder(drawing.getX(),drawing.getY());
       
         for (Figure figure: drawing.getList()){
           AreaDoubler ad = new AreaDoubler();
           figure.accept(ad); //llama al visit
-          addDoubleFigure(ad,db,figure);
-          
-          
+          addDoubleFigure(ad,db,figure);          
         }    
         draw = db.create(); //creamos la figura 
     }
@@ -55,6 +52,7 @@ public class AreaDoubler implements FigureVisitor{
         return draw;
     }
 
+    /* Comprobamos que añadir al DrawingBuilder desde el AreaDoubler   */
     private void addDoubleFigure(AreaDoubler ad, DrawingBuilder db, Figure figure) {
         if( figure instanceof Drawing){
             db.addFigure(ad.getdrawing());
@@ -66,7 +64,5 @@ public class AreaDoubler implements FigureVisitor{
         if( figure instanceof Circle){
             db.addFigure(ad.getmiCircle());
         }
-        
     }
-     
 }

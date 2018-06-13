@@ -3,6 +3,7 @@
  * @author Oriol
  * @author Alberto
  */
+
 public interface FigureVisitor {
     void visit(Circle circle);
     void visit(Rectangle rectangle);

@@ -21,4 +21,5 @@ public class Circle extends Figure{
     public void accept(FigureVisitor fv) {
       fv.visit(this);
     }
+    
 }
