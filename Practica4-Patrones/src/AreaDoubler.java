@@ -13,7 +13,7 @@ public class AreaDoubler implements FigureVisitor{
     
     @Override
     public void visit(Circle circle) {
-        circ = new Circle (circle.getX(),
+        this.circ = new Circle (circle.getX(),
               circle.getY(),
               circle.getR()* math_sqrt);
     }
@@ -30,10 +30,43 @@ public class AreaDoubler implements FigureVisitor{
     public void visit(Drawing drawing) {
       DrawingBuilder db = new DrawingBuilder(drawing.getX(),drawing.getY());
       
-      for (Figure figure: drawing.getList()){
-          figure.accept(this); //llama al visit
-          db.addFigure(figure); //añadimos la figura a la lista 
-      }    
-       draw = db.create(); //creamos la figura 
+      
+        for (Figure figure: drawing.getList()){
+          AreaDoubler ad = new AreaDoubler();
+          figure.accept(ad); //llama al visit
+          addDoubleFigure(ad,db,figure);
+          
+          
+        }    
+        draw = db.create(); //creamos la figura 
     }
+  
+    
+    /*       GETTERS           */
+    public Circle getmiCircle(){
+        return circ;
+    }
+  
+    public Rectangle getRectangle(){
+        return rect;
+    }
+    
+    public Drawing getdrawing(){
+        return draw;
+    }
+
+    private void addDoubleFigure(AreaDoubler ad, DrawingBuilder db, Figure figure) {
+        if( figure instanceof Drawing){
+            db.addFigure(ad.getdrawing());
+        }
+        
+        if( figure instanceof Rectangle){
+            db.addFigure(ad.getRectangle());
+        }
+        if( figure instanceof Circle){
+            db.addFigure(ad.getmiCircle());
+        }
+        
+    }
+     
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class DrawingBuilder {
     
     private double x;
     private double y;
-    private List<Figure> components;
+    private List<Figure> components = new ArrayList<>();
     
     public DrawingBuilder (double x, double y){
         this.x = x;
